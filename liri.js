@@ -63,9 +63,18 @@ function bandsCall() {
 
 function spotifyCall() {
     spotify
-        .search({ type: 'track', query: 'All the Small Things' })
+        .search({ type: 'track', query: 'Hotline Bling' })
         .then(function(response) {
-            console.log(response);
+            // console.log(response.tracks.items[0]);
+
+            var callRespone = response.tracks.items[0];
+            console.log(callRespone)
+
+            var artistInfo = callRespone.artists[0].name
+            console.log("Artist: " + artistInfo)
+
+            var songName = callRespone.name
+            console.log("Song Name: " + songName)
         })
         .catch(function(err) {
             console.log(err);
